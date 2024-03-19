@@ -8,7 +8,8 @@ import {
   FaXbox,
 } from "react-icons/fa";
 import { MdPhoneIphone } from "react-icons/md";
-import { SiNintendo } from "react-icons/si";
+// import { SiNintendo } from "react-icons/si";
+import { SiNintendoswitch } from "react-icons/si";
 import { Platform } from "../hooks/useGame";
 import { HStack, Icon, Text } from "@chakra-ui/react";
 import { IconType } from "react-icons";
@@ -28,7 +29,7 @@ const PlatformIconList = ({ platforms }: Props) => {
     android: FaAndroid,
     web: FaGlobe,
     ios: MdPhoneIphone,
-    nintendo: SiNintendo,
+    nintendo: SiNintendoswitch,
   };
 
   let moredots = false;
