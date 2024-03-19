@@ -10,8 +10,9 @@ import {
 import { MdPhoneIphone } from "react-icons/md";
 import { SiNintendo } from "react-icons/si";
 import { Platform } from "../hooks/useGame";
-import { HStack, Icon } from "@chakra-ui/react";
+import { HStack, Icon, Text } from "@chakra-ui/react";
 import { IconType } from "react-icons";
+import { IoIosMore } from "react-icons/io";
 
 interface Props {
   platforms: Platform[];
@@ -29,6 +30,13 @@ const PlatformIconList = ({ platforms }: Props) => {
     ios: MdPhoneIphone,
     nintendo: SiNintendo,
   };
+
+  let moredots = false;
+  if (platforms.length >= 6) {
+    platforms = platforms.slice(0, 5);
+    moredots = true;
+  }
+
   return (
     <HStack marginY={1}>
       {platforms.map((platform) => (
@@ -38,6 +46,7 @@ const PlatformIconList = ({ platforms }: Props) => {
           color="gray.500"
         />
       ))}
+      {moredots && <Icon key="more" color="gray.500" as={IoIosMore}></Icon>}
     </HStack>
   );
 };
