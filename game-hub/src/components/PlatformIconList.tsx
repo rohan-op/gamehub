@@ -14,6 +14,7 @@ import { Platform } from "../hooks/useGame";
 import { HStack, Icon, Text } from "@chakra-ui/react";
 import { IconType } from "react-icons";
 import { IoIosMore } from "react-icons/io";
+import { SiSega } from "react-icons/si";
 
 interface Props {
   platforms: Platform[];
@@ -30,6 +31,7 @@ const PlatformIconList = ({ platforms }: Props) => {
     web: FaGlobe,
     ios: MdPhoneIphone,
     nintendo: SiNintendoswitch,
+    sega: SiSega,
   };
 
   let moredots = false;
