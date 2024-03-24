@@ -16,15 +16,15 @@ interface Props {
 
 const OrderMenu = ({ onSelectedOrder, selectedOrder }: Props) => {
   const orderBy = [
-    { value: "", label: "Relavance" },
-    { value: "name", label: "Name" },
-    { value: "-name", label: "Name DESC" },
-    { value: "-released", label: "Date Released" },
-    { value: "-added", label: "Date Added" },
-    { value: "-created", label: "Date Created" },
-    { value: "-updated", label: "Date Updated" },
-    { value: "-rating", label: "Rating" },
-    { value: "-metacritic", label: "Metacritic" },
+    { value: "", label: "Relavance", id: 1 },
+    { value: "name", label: "Name", id: 2 },
+    { value: "-name", label: "Name DESC", id: 3 },
+    { value: "-released", label: "Date Released", id: 4 },
+    { value: "-added", label: "Date Added", id: 5 },
+    { value: "-created", label: "Date Created", id: 6 },
+    { value: "-updated", label: "Date Updated", id: 7 },
+    { value: "-rating", label: "Rating", id: 8 },
+    { value: "-metacritic", label: "Metacritic", id: 9 },
   ];
 
   const currentOrder = orderBy.find((order) => order.value === selectedOrder);
@@ -38,7 +38,7 @@ const OrderMenu = ({ onSelectedOrder, selectedOrder }: Props) => {
       <MenuList>
         {orderBy.map((order) => (
           <MenuItem
-            key={order.value}
+            key={order.id}
             value={order.value}
             onClick={() => onSelectedOrder(order.value)}
           >

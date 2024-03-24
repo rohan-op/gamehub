@@ -45,6 +45,7 @@ function App() {
       </Show>
 
       <GridItem area="main">
+        {/* Or use Flex tag instead of Hstack and place one of the coponents in a Box for spacing, marginRight */}
         <HStack spacing={5} padding={3} marginBottom={3}>
           <PlatformMenu
             selectedPlatform={gameQuery.platform}
