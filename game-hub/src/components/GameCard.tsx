@@ -18,10 +18,11 @@ const GameCard = ({ game }: Props) => {
           <PlatformIconList
             platforms={game.parent_platforms.map((p) => p.platform)}
           />
+          <Emojis rating={game.rating_top}></Emojis>
           <Score score={game.metacritic} />
         </HStack>
         <Heading fontSize="2xl" paddingY={2}>
-          {game.name} <Emojis rating={game.rating_top}></Emojis>
+          {game.name}
         </Heading>
       </CardBody>
     </Card>

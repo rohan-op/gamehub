@@ -35,8 +35,8 @@ const PlatformIconList = ({ platforms }: Props) => {
   };
 
   let moredots = false;
-  if (platforms.length >= 6) {
-    platforms = platforms.slice(0, 5);
+  if (platforms.length >= 5) {
+    platforms = platforms.slice(0, 4);
     moredots = true;
   }
 
