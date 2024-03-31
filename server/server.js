@@ -14,18 +14,41 @@ app.use(express.json());
 // Use the cors middleware
 app.use(cors());
 
-app.get('/:query', async (req, res) => {
-    const { query } = req.params;
+app.get('/platforms/lists/parents', async (req, res) => {
     const apiKey = process.env.API_KEY;
+    const { apikey, ...queryParams } = req.query;
     try {
-        const response = await axios.get(`${baseURL}/${query}?key=${apiKey}`);
-        console.log(response.data);
+        const queryString = Object.keys(queryParams).map(key => `${key}=${queryParams[key]}`).join('&');
+        console.log(`FETCH URL:${baseURL}/platforms/lists/parents?key=${apiKey}&${queryString}`);
+        const response = await axios.get(`${baseURL}/platforms/lists/parents?key=${apiKey}&${queryString}`);
         res.json(response.data);
     } catch (error) {
         console.error('Error fetching data:', error);
         res.status(500).send('Error fetching data');
     }
 });
+
+
+app.get('/:query*', async (req, res) => {
+    const { query } = req.params;
+    console.log("query:",query)
+    const { apikey, ...queryParams} = req.query;
+    const apiKey = process.env.API_KEY;
+    try {
+        // const platformres = await axios.get(`${baseURL}/platforms/lists/parents?key=${apiKey}`);
+        // console.log(platformres.data.results);
+        const queryString = Object.keys(queryParams).map(key => `${key}=${queryParams[key]}`).join('&');
+        // console.log(`FETCH URL:${baseURL}/${query}?key=${apiKey}&${queryString}`)
+        // console.log("queryParams:",queryParams)
+        const response = await axios.get(`${baseURL}/${query}?key=${apiKey}&${queryString}`);
+        // console.log(response.data);
+        res.json(response.data);
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        res.status(500).send('Error fetching data');
+    }
+});
+
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
