@@ -29,4 +29,4 @@ const useData = <T>(endpoint: string, requestParams?: AxiosRequestConfig, deps?:
   return {data, error, isLoading}
 }
 
-export default useData
+export default useData 
