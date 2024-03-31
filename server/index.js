@@ -13,11 +13,11 @@ const baseURL = process.env.BASE_URL;
 app.use(express.json());
 // Use the cors middleware
 // Configure CORS to only allow requests from a specific origin
-const corsOptions = {
-    origin: 'https://game-hub-taupe-phi.vercel.app/',
-  };
-  app.use(cors(corsOptions));
-// app.use(cors());
+// const corsOptions = {
+//     origin: 'https://game-hub-taupe-phi.vercel.app/',
+//   };
+//   app.use(cors(corsOptions));
+app.use(cors());
 
 app.get('/platforms/lists/parents', async (req, res) => {
     const apiKey = process.env.API_KEY;
